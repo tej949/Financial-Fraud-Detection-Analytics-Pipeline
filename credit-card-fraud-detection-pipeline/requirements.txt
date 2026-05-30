@@ -1,0 +1,22 @@
+# Tabular ML
+pandas>=2.2.0
+numpy>=1.24.0
+seaborn
+pyyaml
+evaluate
+streamlit
+
+scikit-learn>=1.4.0
+imbalanced-learn>=0.12.0
+matplotlib
+joblib>=1.3.0
+xgboost>=2.0.0
+
+# BERT NLP
+transformers>=4.40.0
+datasets>=2.19.0
+torch>=2.3.0
+accelerate>=0.30.0  # optional but recommended for GPU/multi-GPU
+
+# Optional (for metrics and progress bars)
+tqdm>=4.66.0

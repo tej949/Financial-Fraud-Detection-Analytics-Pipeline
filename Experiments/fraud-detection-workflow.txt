@@ -1,0 +1,68 @@
+Project Workflow (step by step)
+
+📊 Dataset & Problem
+Dataset loading to ensure the credit card fraud dataset available
+
+🔷 Pipeline Workflow
+1. Data Loading
+
+- Load dataset: sampledcreditcard.csv
+
+- Print shape & class distribution to confirm the safe loading.
+
+2. Data Preprocessing
+
+- Convert Time (seconds since first transaction) into timestamp relative to start.
+
+- Engineer a new categorical feature: PartOfDay (morning, afternoon, evening, night) based on Time.
+
+- Ensure Amount is numeric and scaled.
+
+3. Feature Engineering
+
+- Add the PartOfDay feature (one-hot encoded).
+
+- Drop or keep original Time as needed.
+
+4. Scaling & Encoding
+
+- Standardize numeric features (Amount, V1–V28)
+
+- Encode categorical PartOfDay via one-hot.
+
+5. Feature Selection
+
+- Train a RandomForest on full training data to rank feature importances.
+
+- Keep top N most important features (including PartOfDay_* if important).
+
+6. Train-Test Split
+
+- Stratified split into train/test sets.
+
+7. Handle Class Imbalance
+
+- Apply SMOTE on training set only.
+
+8. Model Training & Hyperparameter Tuning
+
+- Train & evaluate multiple models (LogisticRegression, RandomForest, DecisionTree, XGBoost)
+
+- Tune hyperparameters (optional — grid search).
+
+9. Model Evaluation & Selection
+
+- Compare models on ROC AUC & F1-score.
+
+- Pick the best model.
+
+10. Save Artifacts
+
+- Save best model (joblib)
+
+- Save scaler, selected_features, and encoder for deployment.
+
+11. Deployment Readiness
+
+- Artifacts can be loaded in production & used on new transactions.
+
